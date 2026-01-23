@@ -2,6 +2,7 @@ import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { catchError, of } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 interface CategoryResponse {
   meta?: {
@@ -34,7 +35,7 @@ interface CategoryItem {
 })
 export class MainCategoriesComponent {
   readonly endpoint =
-    'https://l2z974n0-dev.webengine.zesty.io/-/instant/6-a09881cd9b-zrhzr9.json?zpw=gnpmx';
+    `${environment.zesty_stage_cms}/-/instant/6-a09881cd9b-zrhzr9.json?zpw=${environment.zesty_stage_pw}`;
   readonly categories$ = this.http.get<CategoryResponse>(this.endpoint).pipe(
     catchError(() => {
       this.errorMessage =

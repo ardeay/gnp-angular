@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { catchError, of } from 'rxjs';
 import { MainCategoriesComponent } from '../main-categories/main-categories.component';
+import { environment } from '../../environments/environment';
 
 interface HomePageResponse {
   title?: string;
@@ -47,7 +48,7 @@ interface HomePageResponse {
 })
 export class HomeComponent {
   readonly endpoint =
-    'https://l2z974n0-dev.webengine.zesty.io/?toJSON&zpw=gnpmx';
+    `${environment.zesty_stage_cms}/?toJSON&zpw=${environment.zesty_stage_pw}`;
   readonly data$ = this.http.get<HomePageResponse>(this.endpoint).pipe(
     catchError(() => {
       this.errorMessage =

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { catchError, filter, map, of, startWith, switchMap } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-dynamicpage',
@@ -18,9 +19,9 @@ export class DynamicPageComponent {
   );
   readonly data$ = this.path$.pipe(
     switchMap((path) => {
-      const endpoint = `https://l2z974n0-dev.webengine.zesty.io/${encodeURI(
+      const endpoint = `${environment.zesty_stage_cms}/${encodeURI(
         path
-      )}?toJSON&zpw=gnpmx`;
+      )}?toJSON&zpw=${environment.zesty_stage_pw}`;
       console.log("", endpoint);
       return this.http.get<unknown>(endpoint).pipe(
         catchError(() => {
