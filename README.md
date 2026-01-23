@@ -1,10 +1,10 @@
-# GnpAngular
+# Angular Example on Zesty.io
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
 
 ## Environment variables
 
-Zesty connection values are centralized in `src/environments/environment.ts`:
+Zesty.io connection values are centralized in `src/environments/environment.ts`:
 
 - `zesty_stage_cms`: Base URL for the Zesty instance.
 - `zesty_stage_pw`: Access token appended as `zpw` in JSON requests.
