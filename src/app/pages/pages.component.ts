@@ -14,7 +14,7 @@ interface PageImage {
   url?: string;
 }
 
-interface PageData {
+export interface PageData {
   title?: string;
   content?: string;
   category?: {

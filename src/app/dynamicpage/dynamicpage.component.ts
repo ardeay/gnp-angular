@@ -4,7 +4,13 @@ import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { catchError, filter, map, of, startWith, switchMap } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { PagesComponent } from '../pages/pages.component';
+import { PageData, PagesComponent } from '../pages/pages.component';
+
+type DynamicPageResponse = PageData & {
+  meta?: {
+    model_name?: string;
+  };
+};
 
 @Component({
   selector: 'app-dynamicpage',
@@ -24,7 +30,7 @@ export class DynamicPageComponent {
         path
       )}?toJSON&zpw=${environment.zesty_stage_pw}`;
       console.log("", endpoint);
-      return this.http.get<unknown>(endpoint).pipe(
+      return this.http.get<DynamicPageResponse>(endpoint).pipe(
         catchError(() => {
           this.errorMessage =
             'A dynamic toJSON route on your Zesty.io instance does not exist. Please check the url path and if there is a pair on Zesty.io, or make a model and new content item to match the path.';
