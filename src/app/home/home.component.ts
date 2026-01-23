@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 import { catchError, of } from 'rxjs';
 import { MainCategoriesComponent } from '../main-categories/main-categories.component';
 import { environment } from '../../environments/environment';
+import { SitemapComponent } from '../sitemap/sitemap.component';
 
 interface HomePageResponse {
   title?: string;
@@ -42,7 +43,7 @@ interface HomePageResponse {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [AsyncPipe, NgIf, NgFor, MainCategoriesComponent],
+  imports: [AsyncPipe, NgIf, NgFor, MainCategoriesComponent, SitemapComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
