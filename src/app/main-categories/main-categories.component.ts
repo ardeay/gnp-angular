@@ -1,6 +1,7 @@
 import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { catchError, of } from 'rxjs';
 import { environment } from '../../environments/environment';
 
@@ -30,7 +31,7 @@ interface CategoryItem {
 @Component({
   selector: 'app-main-categories',
   standalone: true,
-  imports: [AsyncPipe, NgIf, NgFor],
+  imports: [AsyncPipe, NgIf, NgFor, RouterLink],
   templateUrl: './main-categories.component.html'
 })
 export class MainCategoriesComponent {

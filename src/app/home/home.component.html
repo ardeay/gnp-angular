@@ -4,48 +4,50 @@
   <div
     class="pointer-events-none absolute inset-x-0 bottom-[-40%] h-[75%] bg-[radial-gradient(circle,rgba(251,191,36,0.25),transparent_60%)] blur-lg"
   ></div>
-  <section
-    *ngIf="data$ | async as data; else loading"
-    class="relative mx-auto grid w-full max-w-5xl gap-10"
-  >
+  <section *ngIf="data$ | async as data; else loading" class="relative w-full">
     <header
-      class="rounded-[28px] bg-slate-900/95 px-10 py-12 text-slate-50 shadow-2xl shadow-slate-900/20"
+      class="w-full rounded-[28px] bg-slate-900/95 px-10 py-12 text-slate-50 shadow-2xl shadow-slate-900/20"
     >
-      <p class="mb-4 text-xs uppercase tracking-[0.3em] text-slate-200/70">
-        Zesty JSON Homepage
-      </p>
-      <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">
-        {{ data.title || 'Homepage' }}
-      </h1>
-      <p class="mt-4 max-w-2xl text-base leading-7 text-slate-200/80">
-        {{
-          data.meta?.web?.seo_meta_description ||
-            'Fresh content streamed from Zesty with localization-ready metadata.'
-        }}
-      </p>
-      <div class="mt-8 flex flex-wrap items-center gap-4">
-        <a
-          class="rounded-full bg-amber-400 px-6 py-3 font-semibold text-slate-900 shadow-lg shadow-amber-400/40 transition hover:-translate-y-0.5"
-          [href]="data.meta?.web?.url"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Visit {{ data.meta?.web?.seo_meta_title || 'site' }}
-        </a>
-        <span
-          class="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-5 py-2 text-sm"
-        >
-          {{ data.meta?.locale?.name || 'Locale' }}
-          <span class="font-semibold text-white/80">
-            {{ data.meta?.locale?.code }}
+      <div class="mx-auto flex w-full max-w-5xl flex-col gap-6">
+        <div>
+          <p class="mb-4 text-xs uppercase tracking-[0.3em] text-slate-200/70">
+            Angular Zesty.io
+          </p>
+          <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">
+            {{ data.title || 'Homepage' }}
+          </h1>
+          <p class="mt-4 max-w-2xl text-base leading-7 text-slate-200/80">
+            {{
+              data.meta?.web?.seo_meta_description ||
+                'Fresh content streamed from Zesty with localization-ready metadata.'
+            }}
+          </p>
+        </div>
+        <div class="flex flex-wrap items-center gap-4">
+          <a
+            class="rounded-full bg-amber-400 px-6 py-3 font-semibold text-slate-900 shadow-lg shadow-amber-400/40 transition hover:-translate-y-0.5"
+            [href]="data.meta?.web?.url"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Visit {{ data.meta?.web?.seo_meta_title || 'site' }}
+          </a>
+          <span
+            class="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-5 py-2 text-sm"
+          >
+            {{ data.meta?.locale?.name || 'Locale' }}
+            <span class="font-semibold text-white/80">
+              {{ data.meta?.locale?.code }}
+            </span>
           </span>
-        </span>
+        </div>
       </div>
     </header>
 
-    <app-main-categories class="block"></app-main-categories>
+    <section class="mx-auto mt-10 grid w-full max-w-5xl gap-6 lg:grid-cols-2">
+      <app-main-categories class="block"></app-main-categories>
 
-    <section class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <section class="grid gap-6">
       <article class="rounded-2xl bg-white p-7 shadow-xl shadow-slate-900/5">
         <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
           Entry details
@@ -148,6 +150,7 @@
           </li>
         </ul>
       </article>
+      </section>
     </section>
   </section>
 

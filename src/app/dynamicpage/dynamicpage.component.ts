@@ -26,7 +26,7 @@ export class DynamicPageComponent {
       return this.http.get<unknown>(endpoint).pipe(
         catchError(() => {
           this.errorMessage =
-            'Unable to load dynamic page data right now. Please try again later.';
+            'A dynamic toJSON route on your Zesty.io instance does not exist. Please check the url path and if there is a pair on Zesty.io, or make a model and new content item to match the path.';
           return of(null);
         })
       );
