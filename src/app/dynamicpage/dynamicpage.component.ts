@@ -29,7 +29,6 @@ export class DynamicPageComponent {
       const endpoint = `${environment.zesty_stage_cms}/${encodeURI(
         path
       )}?toJSON&zpw=${environment.zesty_stage_pw}`;
-      console.log("", endpoint);
       return this.http.get<DynamicPageResponse>(endpoint).pipe(
         catchError(() => {
           this.errorMessage =

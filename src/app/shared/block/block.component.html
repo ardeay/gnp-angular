@@ -1,0 +1,2 @@
+<div class="block" *ngIf="html" [innerHTML]="html"></div>
+<p class="block__error" *ngIf="!html && errorMessage">{{ errorMessage }}</p>

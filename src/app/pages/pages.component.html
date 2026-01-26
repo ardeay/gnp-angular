@@ -1,7 +1,8 @@
 <section class="rounded-3xl border border-white/60 bg-white/90 p-10 shadow-xl shadow-slate-900/5">
+  <app-block [name]="page?.primary_ad___aununcio_primario || ''"></app-block>
   <div class="flex flex-col gap-8 lg:flex-row lg:items-start">
     <div class="flex-1 space-y-4">
-      <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Page</p>
+      <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Pages</p>
       <h1 class="text-3xl font-semibold text-slate-900 sm:text-4xl">
         {{ page?.title }}
       </h1>
@@ -30,4 +31,15 @@
       </div>
     </div>
   </div>
+    <!-- <app-gnp-button></app-gnp-button> -->
+     <app-block
+      [name]="page?.primary_button___boton_primario || ''"
+    ></app-block>
+    <br/>
+    <app-block
+      [name]="page?.secondary_button___boton_secundario || ''"
+    ></app-block>
+    <br />
+  <app-block [name]="page?.secondary_ad___anuncio_secundario || ''"></app-block>
+
 </section>
